@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chamundi Melodies — Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent1:#FF6B6B;
+      --accent2:#FFD93D;
+      --accent3:#6BCB77;
+      --bg:#fffaf6;
+      --card:#ffffff;
+      --text:#1b1b1b;
+      --muted:#666;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Montserrat,system-ui,Arial,sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text)}
+
+    header.hero{
+      padding:32px 18px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    header.hero .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;justify-content:center}
+    header .logo{width:84px;height:84px;border-radius:12px;flex:0 0 84px;background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070cf1?q=80&w=800&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+    header h1{font-size:28px;margin:0 0 6px 0;font-weight:700}
+    header p.lead{margin:0;font-size:14px;opacity:0.95}
+
+    main{max-width:1100px;margin:26px auto;padding:0 18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(16,24,40,0.06);overflow:hidden}
+    .card h2{margin:0 0 8px 0;font-size:18px;color:var(--text)}
+    .card .section-image{width:100%;height:120px;border-radius:8px;background-size:cover;background-position:center;margin-bottom:12px}
+
+    .item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px dashed rgba(0,0,0,0.05)}
+    .item:first-of-type{border-top:none}
+    .name{font-weight:600}
+    .desc{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+    .price{font-weight:700}
+
+    .special{display:flex;gap:12px;align-items:center}
+    .special .badge{background:linear-gradient(90deg,var(--accent3),var(--accent1));color:white;padding:6px 10px;border-radius:999px;font-weight:700}
+
+    footer{max-width:1100px;margin:28px auto;padding:18px;text-align:center;color:var(--muted);font-size:14px}
+
+    @media (max-width:520px){header .wrap{flex-direction:column}.header-img{display:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Chamundi Melodies</h1>
+        <p class="lead">Colourful flavours · Coastal spices · Home-style warmth</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="grid">
+      <section class="card" id="starters">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Starters</h2>
+        <div class="item"><div><span class="name">Chicken Lollipop</span><span class="desc">Crispy, spicy glaze</span></div><div class="price">₹220</div></div>
+        <div class="item"><div><span class="name">Mutton Pepper Fry</span><span class="desc">Black pepper, curry leaves</span></div><div class="price">₹260</div></div>
+        <div class="item"><div><span class="name">Fish Fry</span><span class="desc">Coastal masala, lemon</span></div><div class="price">₹240</div></div>
+        <div class="item"><div><span class="name">Prawns Golden Fry</span><span class="desc">Crispy prawns, house spice</span></div><div class="price">₹280</div></div>
+      </section>
+
+      <section class="card" id="grill">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Grill & Kebab</h2>
+        <div class="item"><div><span class="name">Chicken Shawarma</span><span class="desc">Wrapped with garlic sauce</span></div><div class="price">₹140</div></div>
+        <div class="item"><div><span class="name">Chicken Kebab</span><span class="desc">Charred, juicy skewers</span></div><div class="price">₹200</div></div>
+        <div class="item"><div><span class="name">Mixed Grill Plate</span><span class="desc">Shawarma + kebab + sides</span></div><div class="price">₹420</div></div>
+      </section>
+
+      <section class="card" id="biryani">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1604909053200-6f0b9b0b0f3e?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Biryani Special</h2>
+        <div class="item"><div><span class="name">Chicken Biryani</span><span class="desc">Fragrant, long-grain rice</span></div><div class="price">₹250</div></div>
+        <div class="item"><div><span class="name">Mutton Biryani</span><span class="desc">Slow-cooked with spice</span></div><div class="price">₹330</div></div>
+        <div class="item"><div class="special"><span class="badge">Chef's Special</span><div style="margin-left:8px"><span class="name">Butta Biryani</span><span class="desc">Traditional dum biryani finished in an egg shell — house speciality</span></div></div><div class="price">₹280</div></div>
+      </section>
+
+      <section class="card" id="curries">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1604908177522-8c6f9b8b4e3a?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Main Course</h2>
+        <strong style="display:block;margin-bottom:8px">Veg Curries</strong>
+        <div class="item"><div><span class="name">Paneer Butter Masala</span><span class="desc">Creamy tomato gravy</span></div><div class="price">₹210</div></div>
+        <div class="item"><div><span class="name">Veg Kadai</span><span class="desc">Bell peppers & rustic masala</span></div><div class="price">₹190</div></div>
+        <strong style="display:block;margin:14px 0 8px">Non‑Veg Curries</strong>
+        <div class="item"><div><span class="name">Chicken Curry</span><span class="desc">Homestyle curry</span></div><div class="price">₹230</div></div>
+        <div class="item"><div><span class="name">Mutton Curry</span><span class="desc">Rich, slow-cooked</span></div><div class="price">₹300</div></div>
+      </section>
+
+      <section class="card" id="breads">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1516685304081-de7947d419d2?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Breads & Sides</h2>
+        <div class="item"><div><span class="name">Roti</span></div><div class="price">₹20</div></div>
+        <div class="item"><div><span class="name">Butter Naan</span></div><div class="price">₹40</div></div>
+        <div class="item"><div><span class="name">Garlic Naan</span></div><div class="price">₹50</div></div>
+      </section>
+
+      <section class="card" id="drinks">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1542444459-db8f1b0a2f17?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Beverages</h2>
+        <div class="item"><div><span class="name">Lemon Soda</span></div><div class="price">₹60</div></div>
+        <div class="item"><div><span class="name">Cold Coffee</span></div><div class="price">₹120</div></div>
+        <div class="item"><div><span class="name">Fresh Juice</span></div><div class="price">₹90</div></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>Thanks for choosing <strong>Chamundi Melodies</strong>. Scan QR for orders or speak to staff for recommendations.</footer>
+</body>
+</html>
