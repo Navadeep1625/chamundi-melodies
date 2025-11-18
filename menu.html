@@ -1,232 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chamundi Melodies — Menu</title>
-
-  <!-- Basic styles - mobile-first -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#fbfbfb; --card:#fff; --muted:#666; --accent:#b33;
-      --radius:12px;
-      --maxw:820px;
-      --gap:18px;
-      --pad:18px;
-      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --accent1:#FF6B6B;
+      --accent2:#FFD93D;
+      --accent3:#6BCB77;
+      --bg:#fffaf6;
+      --card:#ffffff;
+      --text:#1b1b1b;
+      --muted:#666;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:#111; font-family:var(--font-sans);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
+    body{font-family:Montserrat,system-ui,Arial,sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text)}
 
-    header{
-      background:linear-gradient(180deg,#3a2b2b 0,#2b1f1f 100%);
-      color: #fff; padding:28px var(--pad); text-align:center;
+    header.hero{
+      padding:32px 18px;
+      background:linear-gradient(90deg,var(--accent1),var(--accent2));
+      color:white;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-    header h1{margin:0;font-size:20px;letter-spacing:0.6px}
-    header p{margin:8px 0 0;color: #f5dcdc;font-size:13px}
+    header.hero .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:18px;justify-content:center}
+    header .logo{width:84px;height:84px;border-radius:12px;flex:0 0 84px;background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070cf1?q=80&w=800&auto=format&fit=crop');background-size:cover;background-position:center;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
+    header h1{font-size:28px;margin:0 0 6px 0;font-weight:700}
+    header p.lead{margin:0;font-size:14px;opacity:0.95}
 
-    .container{max-width:var(--maxw); margin:18px auto; padding:0 var(--pad)}
+    main{max-width:1100px;margin:26px auto;padding:0 18px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 
-    .card{
-      background:var(--card); border-radius:var(--radius); box-shadow:0 6px 18px rgba(20,20,20,0.06);
-      padding:16px; margin-bottom:var(--gap);
-    }
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 20px rgba(16,24,40,0.06);overflow:hidden}
+    .card h2{margin:0 0 8px 0;font-size:18px;color:var(--text)}
+    .card .section-image{width:100%;height:120px;border-radius:8px;background-size:cover;background-position:center;margin-bottom:12px}
 
-    .section-title{
-      display:flex; justify-content:space-between; align-items:center;
-      gap:12px; padding-bottom:10px; border-bottom:1px solid #f0f0f0;
-    }
-    .section-title h2{margin:0;font-size:16px}
-    .muted{color:var(--muted);font-size:13px}
-
-    ul.menu{list-style:none;margin:12px 0 0;padding:0}
-    li.item{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:12px 6px; border-bottom:1px dashed #f2f2f2;
-    }
-    li.item:last-child{border-bottom:none}
-    .item .left{display:flex;flex-direction:column;gap:6px}
+    .item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px dashed rgba(0,0,0,0.05)}
+    .item:first-of-type{border-top:none}
     .name{font-weight:600}
-    .desc{font-size:13px;color:var(--muted)}
-    .price{font-weight:700; min-width:64px; text-align:right}
+    .desc{display:block;font-size:13px;color:var(--muted);margin-top:4px}
+    .price{font-weight:700}
 
-    /* small helpers */
-    .tag{font-size:12px;padding:4px 8px;border-radius:999px;background:#f7f7f7;color:#333}
-    .special{background:#fff3f3;border:1px solid #ffd6d6;color:#832020;padding:6px 10px;border-radius:10px;font-weight:700}
+    .special{display:flex;gap:12px;align-items:center}
+    .special .badge{background:linear-gradient(90deg,var(--accent3),var(--accent1));color:white;padding:6px 10px;border-radius:999px;font-weight:700}
 
-    /* collapsible */
-    button.collapse-btn{background:none;border:0;padding:8px 0;color:var(--muted);font-size:13px}
-    .controls{display:flex;gap:12px;align-items:center}
+    footer{max-width:1100px;margin:28px auto;padding:18px;text-align:center;color:var(--muted);font-size:14px}
 
-    /* print rules */
-    @media print{
-      body{background:#fff}
-      header, .controls{display:none}
-      .container{margin:0;padding:0}
-      .card{box-shadow:none;border-radius:0}
-    }
-
-    /* responsive tweaks */
-    @media (min-width:900px){
-      header h1{font-size:24px}
-      .name{font-size:16px}
-      .desc{font-size:14px}
-    }
+    @media (max-width:520px){header .wrap{flex-direction:column}.header-img{display:none}}
   </style>
-
-  <script>
-    // Toggle section collapse
-    function toggleSection(id, btn){
-      const el = document.getElementById(id);
-      const isHidden = el.style.display === 'none';
-      el.style.display = isHidden ? 'block' : 'none';
-      btn.textContent = isHidden ? 'Hide' : 'Show';
-    }
-
-    // Simple copy-to-clipboard for URL (useful for testing)
-    function copyUrl(){
-      navigator.clipboard?.writeText(location.href).then(()=> alert('URL copied'));
-    }
-
-    // small accessibility: focus outline if keyboard used
-    document.addEventListener('keydown', e => {
-      if(e.key === 'Tab') document.body.classList.add('show-focus');
-    });
-  </script>
 </head>
 <body>
-
-  <header>
-    <h1>Chamundi Melodies</h1>
-    <p>Fresh • Quality • Taste — Scan the QR for our live menu</p>
+  <header class="hero">
+    <div class="wrap">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Chamundi Melodies</h1>
+        <p class="lead">Colourful flavours · Coastal spices · Home-style warmth</p>
+      </div>
+    </div>
   </header>
 
-  <div class="container">
+  <main>
+    <div class="grid">
+      <section class="card" id="starters">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Starters</h2>
+        <div class="item"><div><span class="name">Chicken Lollipop</span><span class="desc">Crispy, spicy glaze</span></div><div class="price">₹220</div></div>
+        <div class="item"><div><span class="name">Mutton Pepper Fry</span><span class="desc">Black pepper, curry leaves</span></div><div class="price">₹260</div></div>
+        <div class="item"><div><span class="name">Fish Fry</span><span class="desc">Coastal masala, lemon</span></div><div class="price">₹240</div></div>
+        <div class="item"><div><span class="name">Prawns Golden Fry</span><span class="desc">Crispy prawns, house spice</span></div><div class="price">₹280</div></div>
+      </section>
 
-    <div class="card" aria-labelledby="starters">
-      <div class="section-title">
-        <h2 id="starters">Starters</h2>
-        <div class="controls">
-          <button class="collapse-btn" onclick="toggleSection('starters-list', this)">Hide</button>
-          <span class="tag">Popular</span>
-        </div>
-      </div>
+      <section class="card" id="grill">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Grill & Kebab</h2>
+        <div class="item"><div><span class="name">Chicken Shawarma</span><span class="desc">Wrapped with garlic sauce</span></div><div class="price">₹140</div></div>
+        <div class="item"><div><span class="name">Chicken Kebab</span><span class="desc">Charred, juicy skewers</span></div><div class="price">₹200</div></div>
+        <div class="item"><div><span class="name">Mixed Grill Plate</span><span class="desc">Shawarma + kebab + sides</span></div><div class="price">₹420</div></div>
+      </section>
 
-      <div id="starters-list">
-        <ul class="menu" role="list">
-          <li class="item"><div class="left"><div class="name">Chicken Lollipop</div><div class="desc">Crisp, spicy wings</div></div><div class="price">₹220</div></li>
-          <li class="item"><div class="left"><div class="name">Chicken 65</div><div class="desc">Deep fried, tangy</div></div><div class="price">₹200</div></li>
-          <li class="item"><div class="left"><div class="name">Mutton Pepper Fry</div><div class="desc">Kerala style</div></div><div class="price">₹260</div></li>
-          <li class="item"><div class="left"><div class="name">Fish Fry</div><div class="desc">Local catch, crisp</div></div><div class="price">₹240</div></li>
-          <li class="item"><div class="left"><div class="name">Prawns Golden Fry</div><div class="desc">Lightly spiced</div></div><div class="price">₹280</div></li>
-        </ul>
-      </div>
+      <section class="card" id="biryani">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1604909053200-6f0b9b0b0f3e?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Biryani Special</h2>
+        <div class="item"><div><span class="name">Chicken Biryani</span><span class="desc">Fragrant, long-grain rice</span></div><div class="price">₹250</div></div>
+        <div class="item"><div><span class="name">Mutton Biryani</span><span class="desc">Slow-cooked with spice</span></div><div class="price">₹330</div></div>
+        <div class="item"><div class="special"><span class="badge">Chef's Special</span><div style="margin-left:8px"><span class="name">Butta Biryani</span><span class="desc">Traditional dum biryani finished in an egg shell — house speciality</span></div></div><div class="price">₹280</div></div>
+      </section>
+
+      <section class="card" id="curries">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1604908177522-8c6f9b8b4e3a?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Main Course</h2>
+        <strong style="display:block;margin-bottom:8px">Veg Curries</strong>
+        <div class="item"><div><span class="name">Paneer Butter Masala</span><span class="desc">Creamy tomato gravy</span></div><div class="price">₹210</div></div>
+        <div class="item"><div><span class="name">Veg Kadai</span><span class="desc">Bell peppers & rustic masala</span></div><div class="price">₹190</div></div>
+        <strong style="display:block;margin:14px 0 8px">Non‑Veg Curries</strong>
+        <div class="item"><div><span class="name">Chicken Curry</span><span class="desc">Homestyle curry</span></div><div class="price">₹230</div></div>
+        <div class="item"><div><span class="name">Mutton Curry</span><span class="desc">Rich, slow-cooked</span></div><div class="price">₹300</div></div>
+      </section>
+
+      <section class="card" id="breads">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1516685304081-de7947d419d2?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Breads & Sides</h2>
+        <div class="item"><div><span class="name">Roti</span></div><div class="price">₹20</div></div>
+        <div class="item"><div><span class="name">Butter Naan</span></div><div class="price">₹40</div></div>
+        <div class="item"><div><span class="name">Garlic Naan</span></div><div class="price">₹50</div></div>
+      </section>
+
+      <section class="card" id="drinks">
+        <div class="section-image" style="background-image:url('https://images.unsplash.com/photo-1542444459-db8f1b0a2f17?q=80&w=1400&auto=format&fit=crop')"></div>
+        <h2>Beverages</h2>
+        <div class="item"><div><span class="name">Lemon Soda</span></div><div class="price">₹60</div></div>
+        <div class="item"><div><span class="name">Cold Coffee</span></div><div class="price">₹120</div></div>
+        <div class="item"><div><span class="name">Fresh Juice</span></div><div class="price">₹90</div></div>
+      </section>
+
     </div>
+  </main>
 
-    <div class="card" aria-labelledby="mainveg">
-      <div class="section-title">
-        <h2 id="mainveg">Main Course — Veg Curries</h2>
-        <div class="controls"><button class="collapse-btn" onclick="toggleSection('veg-list', this)">Hide</button></div>
-      </div>
-      <div id="veg-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Paneer Butter Masala</div><div class="desc">Creamy tomato base</div></div><div class="price">₹210</div></li>
-          <li class="item"><div class="left"><div class="name">Veg Kadai</div><div class="desc">Mixed vegetables, roasted spices</div></div><div class="price">₹190</div></li>
-          <li class="item"><div class="left"><div class="name">Aloo Gobi Curry</div><div class="desc">Home style</div></div><div class="price">₹170</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" aria-labelledby="mainnonveg">
-      <div class="section-title">
-        <h2 id="mainnonveg">Main Course — Non-Veg Curries</h2>
-        <div class="controls"><button class="collapse-btn" onclick="toggleSection('nonveg-list', this)">Hide</button></div>
-      </div>
-      <div id="nonveg-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Chicken Curry</div><div class="desc">Classic masala</div></div><div class="price">₹230</div></li>
-          <li class="item"><div class="left"><div class="name">Mutton Curry</div><div class="desc">Slow cooked</div></div><div class="price">₹300</div></li>
-          <li class="item"><div class="left"><div class="name">Fish Curry</div><div class="desc">Coconut & tamarind</div></div><div class="price">₹260</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" aria-labelledby="biryani">
-      <div class="section-title">
-        <h2 id="biryani">Biryani Section</h2>
-        <div class="controls"><button class="collapse-btn" onclick="toggleSection('biryani-list', this)">Hide</button></div>
-      </div>
-      <div id="biryani-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Chicken Biryani</div><div class="desc">Fragrant, long grain</div></div><div class="price">₹250</div></li>
-          <li class="item"><div class="left"><div class="name">Mutton Biryani</div><div class="desc">Rich, slow cooked</div></div><div class="price">₹330</div></li>
-          <li class="item"><div class="left"><div class="name">Butta Biryani <span class="special">Special</span></div><div class="desc">Egg-stuffed special biryani</div></div><div class="price">₹280</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" aria-labelledby="grill">
-      <div class="section-title">
-        <h2 id="grill">Grill & Wraps</h2>
-        <div class="controls"><button class="collapse-btn" onclick="toggleSection('grill-list', this)">Hide</button></div>
-      </div>
-      <div id="grill-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Chicken Shawarma</div><div class="desc">Wrapped with garlic sauce</div></div><div class="price">₹140</div></li>
-          <li class="item"><div class="left"><div class="name">Grilled Chicken</div><div class="desc">Half roasted</div></div><div class="price">₹320</div></li>
-          <li class="item"><div class="left"><div class="name">Chicken Kebab</div><div class="desc">Skewered & roasted</div></div><div class="price">₹200</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" aria-labelledby="breads">
-      <div class="section-title">
-        <h2 id="breads">Breads</h2>
-        <div class="controls"><button class="collapse-btn" onclick="toggleSection('breads-list', this)">Hide</button></div>
-      </div>
-      <div id="breads-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Roti</div></div><div class="price">₹20</div></li>
-          <li class="item"><div class="left"><div class="name">Butter Naan</div></div><div class="price">₹40</div></li>
-          <li class="item"><div class="left"><div class="name">Garlic Naan</div></div><div class="price">₹50</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card" aria-labelledby="beverages">
-      <div class="section-title">
-        <h2 id="beverages">Beverages</h2>
-        <div class="controls">
-          <button class="collapse-btn" onclick="toggleSection('bev-list', this)">Hide</button>
-        </div>
-      </div>
-      <div id="bev-list">
-        <ul class="menu">
-          <li class="item"><div class="left"><div class="name">Lemon Soda</div></div><div class="price">₹60</div></li>
-          <li class="item"><div class="left"><div class="name">Cold Coffee</div></div><div class="price">₹120</div></li>
-          <li class="item"><div class="left"><div class="name">Fresh Juice</div></div><div class="price">₹90</div></li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin:12px 0 36px;color:var(--muted)" class="card">
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button onclick="copyUrl()" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff">Copy menu URL</button>
-        <a href="#" onclick="window.print(); return false" style="padding:10px 14px;border-radius:8px;border:1px solid #eee;background:#fff;text-decoration:none;color:inherit">Print menu</a>
-        <a href="#" style="padding:10px 14px;border-radius:8px;background:#ffecec;color:#8a2222;text-decoration:none" aria-hidden="true">Download PDF (add file)</a>
-      </div>
-      <div style="margin-top:10px;font-size:13px;color:var(--muted)">Questions? Ask staff about allergens & spice level.</div>
-    </div>
-
-    <footer style="text-align:center;padding:18px 0;color:var(--muted);font-size:13px">
-      © Chamundi Melodies
-    </footer>
-
-  </div>
+  <footer>Thanks for choosing <strong>Chamundi Melodies</strong>. Scan QR for orders or speak to staff for recommendations.</footer>
 </body>
 </html>
